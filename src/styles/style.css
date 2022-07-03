@@ -1,0 +1,214 @@
+:root {
+  --font-family-default: "Poppins", sans-serif;
+  --font-size-700: 5rem;
+  --font-size-600: 2.8rem;
+  --font-size-500: 1.6rem;
+  --font-size-400: 1.5rem;
+  --font-size-300: 1.4rem;
+  --font-size-200: 1.1rem;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --colorRed: hsl(0, 100%, 74%);
+  --colorGreen: hsl(154, 59%, 51%);
+  --colorBlue700: hsl(249, 10%, 26%);
+  --colorBlue600: hsl(248, 32%, 49%);
+  --colorBlue500: hsl(249, 15%, 42%);
+  --colorBlue400: hsl(246, 25%, 77%);
+  --colorWhite: hsl(0, 0%, 100%);
+  --colorTransparentBlack: rgba(0, 0, 0, 0.15);
+  --colorTransparentBlue: rgb(62, 60, 73, 0.7);
+  --color-text-default: var(--colorWhite);
+  --color-text-input: var(--colorTransparentBlue);
+  --color-text-placeholder: var(--colorBlue700);
+  --color-text-visualization: var(--colorBlue400);
+  --color-text-warning: var(--colorRed);
+  --color-background-default: var(--colorRed);
+  --color-background-banner: var(--colorBlue600);
+  --color-background-form: var(--colorWhite);
+  --color-background-button: var(--colorGreen);
+  --color-border-default: var(--colorTransparentBlack);
+  --color-border-selected: var(--colorBlue500);
+  --color-border-warning: var(--colorRed);
+  --color-boxshadow-default: var(--colorTransparentBlack);
+}
+
+html {
+  font-size: 62.5%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family-default);
+  font-size: var(--font-size-500);
+  font-weight: var(--font-weight-normal);
+  color: var(--color-text-default);
+  background-color: var(--color-background-default);
+}
+
+a {
+  text-decoration: none;
+}
+
+.h-wrapper {
+  position: relative;
+  padding: 0 2.4rem;
+}
+
+.h-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  height: 100%;
+  background-image: url("../images/bg-intro-mobile.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.featured-panel__container {
+  display: grid;
+}
+
+.content-container {
+  padding: 9.1rem 0 6.4rem;
+}
+
+@media only screen and (max-width: 996px) {
+  .text-content {
+    text-align: center;
+  }
+}
+
+.text-content .headline {
+  margin-bottom: 2.3rem;
+  font-size: var(--font-size-600);
+  letter-spacing: 0.001em;
+  line-height: 3.6rem;
+}
+
+.featured-panel__container .right {
+  padding-bottom: 6.8rem;
+}
+
+.skinny-banner-container {
+  margin-bottom: 2.4rem;
+  padding: 1.9rem 0 1.7rem;
+  background-color: var(--color-background-banner);
+  border-bottom: 2px solid var(--color-border-default);
+  border-radius: 1rem;
+  box-shadow: 0 8px var(--color-boxshadow-default);
+}
+
+.skinny-banner-container .banner-copy {
+  margin: 0 auto;
+  max-width: 18rem;
+  width: 100%;
+  font-size: var(--font-size-500);
+  text-align: center;
+  letter-spacing: -0.002em;
+  line-height: 2.6rem;
+}
+
+.skinny-banner-container .banner-copy .banner-copy--heavy {
+  font-weight: var(--font-weight-bold);
+}
+
+.form {
+  padding: 2.4rem;
+  background-color: var(--color-background-form);
+  border-radius: 1rem;
+  box-shadow: 0 8px var(--color-boxshadow-default);
+}
+
+.form__group {
+  position: relative;
+  margin-bottom: 1.6rem;
+  /* transition: 300ms ease; */
+}
+
+.form__control {
+  padding: 1.9rem 2rem 1.6rem;
+  width: 100%;
+  font-family: inherit;
+  font-size: var(--font-size-400);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.002%;
+  color: var(--color-text-placeholder);
+  border: 1px solid var(--color-border-default);
+  border-radius: 0.5rem;
+  outline: none;
+  /* transition: 300ms ease; */
+}
+
+.form__control:focus {
+  border: 1px solid var(--color-border-selected);
+}
+
+::placeholder {
+  color: var(--color-text-input);
+}
+
+.form__button {
+  position: relative;
+  margin-bottom: 0.9rem;
+  padding: 1.7rem 0 1.5rem;
+  width: 100%;
+  font-family: inherit;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.017em;
+  text-transform: uppercase;
+  color: inherit;
+  background-color: var(--color-background-button);
+  border: none;
+  border-bottom: 0.4rem solid var(--color-border-default);
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.form__button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--color-text-default);
+  opacity: 0;
+  transition: 300ms ease;
+}
+
+.form__button:hover::after {
+  opacity: 0.15;
+}
+
+.form__agreement {
+  margin: 0 auto;
+  max-width: 23.2rem;
+  width: 100%;
+  font-size: var(--font-size-200);
+  text-align: center;
+  color: var(--color-text-visualization);
+}
+
+.form__agreement__link {
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-warning);
+}
+
+.form__agreement__link:is(:active, :hover) {
+  text-decoration: underline;
+}
