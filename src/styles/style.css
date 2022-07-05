@@ -70,8 +70,9 @@ a {
   content: "";
   position: absolute;
   top: 0;
-  left: 0;
   right: 0;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: -1;
   height: 100%;
   background-image: url("../images/bg-intro-mobile.png");
@@ -79,6 +80,11 @@ a {
   background-position: center;
 }
 
+@media only screen and (max-width: 596px) {
+  .h-wrapper::before {
+    width: 100%;
+  }
+}
 .featured-panel__container {
   display: grid;
 }
@@ -87,7 +93,7 @@ a {
   padding: 9.1rem 0 6.4rem;
 }
 
-@media only screen and (max-width: 996px) {
+@media only screen and (max-width: 596px) {
   .text-content {
     text-align: center;
   }
@@ -98,6 +104,10 @@ a {
   font-size: var(--font-size-600);
   letter-spacing: 0.001em;
   line-height: 3.6rem;
+}
+
+.text-content .body {
+  font-weight: var(--font-weight-medium);
 }
 
 .featured-panel__container .right {
@@ -137,7 +147,7 @@ a {
 .form__group {
   position: relative;
   margin-bottom: 1.6rem;
-  /* transition: 300ms ease; */
+  transition: 300ms ease;
 }
 
 .form__control {
@@ -151,7 +161,8 @@ a {
   border: 1px solid var(--color-border-default);
   border-radius: 0.5rem;
   outline: none;
-  /* transition: 300ms ease; */
+  caret-color: var(--color-text-visualization);
+  transition: border 300ms ease;
 }
 
 .form__control:focus {
@@ -162,15 +173,51 @@ a {
   color: var(--color-text-input);
 }
 
+.form__group.invalid .form__control {
+  border: 2px solid var(--color-border-warning);
+}
+
+.form__group .error-message {
+  display: none;
+  margin-top: 0.6rem;
+  font-size: var(--font-size-200);
+  font-weight: var(--font-weight-medium);
+  font-style: italic;
+  text-align: right;
+  letter-spacing: -0.005em;
+  color: var(--color-text-warning);
+}
+
+.form__group.invalid .error-message {
+  display: block;
+}
+
+.form__group .error-icon {
+  position: absolute;
+  top: 28%;
+  right: 6%;
+  transform: translateY(-26%);
+  opacity: 0;
+  visibility: hidden;
+  transition: 300ms ease-in-out;
+}
+
+.form__group.invalid .error-icon {
+  opacity: 1;
+  visibility: visible;
+}
+
 .form__button {
   position: relative;
   margin-bottom: 0.9rem;
   padding: 1.7rem 0 1.5rem;
   width: 100%;
   font-family: inherit;
+  font-size: inherit;
   font-weight: var(--font-weight-semibold);
   letter-spacing: 0.017em;
   text-transform: uppercase;
+  text-align: center;
   color: inherit;
   background-color: var(--color-background-button);
   border: none;
@@ -211,4 +258,112 @@ a {
 
 .form__agreement__link:is(:active, :hover) {
   text-decoration: underline;
+}
+
+@media only screen and (min-width: 597px) {
+  .h-wrapper::before {
+    min-width: 141.2rem;
+    min-height: 80rem;
+    background-image: url("../images/bg-intro-desktop.png");
+  }
+
+  .featured-panel__container {
+    padding: 12.1rem 0;
+    grid-template-columns: repeat(2, 1fr);
+    height: 100vh;
+  }
+
+  .content-container {
+    padding: 17.4rem 0 14.2rem;
+  }
+
+  .featured-panel__container .right {
+    justify-self: flex-start;
+    padding: 0;
+    width: 100%;
+  }
+
+  .skinny-banner-container .banner-copy {
+    padding: 0 1rem;
+    min-width: 18rem;
+    max-width: 100%;
+  }
+}
+
+@media only screen and (min-width: 769px) {
+  .featured-panel {
+    max-width: 111rem;
+    margin: auto;
+  }
+
+  .featured-panel__container.active {
+    padding: 7.1rem 0;
+  }
+
+  .content-container {
+    margin: auto;
+    width: 100%;
+  }
+
+  .text-content .headline {
+    margin-bottom: 2.8rem;
+    font-size: var(--font-size-700);
+    line-height: 5.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  .text-content .body {
+    line-height: 2.6rem;
+    letter-spacing: -0.002em;
+  }
+  .featured-panel__container .right {
+    padding-left: 1.5rem;
+  }
+
+  .form-container {
+    max-width: 54rem;
+    width: 100%;
+  }
+
+  .skinny-banner-container {
+    padding: 1.7rem 0 1.5rem;
+  }
+
+  .skinny-banner-container .banner-copy .banner-copy--heavy {
+    letter-spacing: 0.02em;
+  }
+
+  .form {
+    padding: 4rem;
+  }
+
+  .form__group {
+    margin-bottom: 2rem;
+  }
+
+  .form__control {
+    padding: 1.5rem 3.1rem 1.6rem;
+  }
+
+  .form__button {
+    margin-bottom: 1.4rem;
+    padding: 1.7rem 0 1.1rem;
+    line-height: 2.4rem;
+    letter-spacing: 0.015em;
+  }
+
+  .form__agreement {
+    padding-bottom: 0.2rem;
+    max-width: 36.8rem;
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+  .h-wrapper::before {
+    width: 98%;
+  }
+
+  .featured-panel__container {
+    align-items: center;
+  }
 }
