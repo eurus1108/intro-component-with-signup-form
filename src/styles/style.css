@@ -262,7 +262,7 @@ a {
 
 @media only screen and (min-width: 597px) {
   .h-wrapper::before {
-    min-width: 141.2rem;
+    width: 98%;
     min-height: 80rem;
     background-image: url("../images/bg-intro-desktop.png");
   }
